@@ -29,7 +29,7 @@ Currently gToWbot works only with ToW with russian translation!
 * Press the "Q" button if you need to stop the bot, or just close the gToWbot console
 * When a bot controls a character and collect resources, the bot takes control of the mouse. Do not move the mouse while bot doing its work, otherwise errors may occur
 * After all resources is collected - bot stops his work and closing the console
-* When bot starts - the ToW game window is resizing to 1360x720 and moving to the main monitor at top left corner. Don't move, hide, resize, obscure the window! Bot uses coordinates system, so mouse clicks will be missed
+* When bot starts - the ToW game window will be automatically resized to 1360x720 and moving to the main monitor at top left corner. Don't move, hide, resize, obscure the window! Bot uses coordinates system, so mouse clicks will be missed
 
 # Getting Started
 1. Run the TalesOfWind game
