@@ -54,4 +54,5 @@ Press ESC instead of Q when you choosing the CoordinatesCollector to close the s
 # Technologies
 * Writed on Python3.9 
 * Using external modules: opencv-python, mss, keyboard, pywin32.
+* Remember to install manually pywin32!
   
