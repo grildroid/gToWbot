@@ -106,7 +106,7 @@ class AutoResources:
                         terminateprocOBJ.close_flag = True # Setting the terminate option
                         break # Exiting the cycle with terminate command
 
-                    if cvprocessor.check(cvprocessor.template__farm_map) > 0: # Checking for the map opens -> If map opens
+                    if cvprocessor.match(cvprocessor.template__farm_map, 0.7) > 0: # Checking for the map opens -> If map opens
                         break # Exiting the done cycle
                     else:
                         check_map__counter += 1
@@ -124,7 +124,7 @@ class AutoResources:
 
                     time.sleep(1) # Every 1 second check the button existance
 
-                    if cvprocessor.check(cvprocessor.template__use_button) > 0: # Check 'USE' button existance
+                    if cvprocessor.match(cvprocessor.template__use_button, 0.5) > 0: # Check 'USE' button existance
                         break # IF button found -> going to clicking block
                     else: # IF button not found
                         check_resource_use_button += 1
@@ -140,7 +140,7 @@ class AutoResources:
                     while self.active: # Цикл ресурса
                         terminateprocOBJ.check_terminate() # Checking the close_flag parameter
 
-                        if cvprocessor.check(cvprocessor.template__use_button) > 0: # Checking the existance of 'USE' button
+                        if cvprocessor.match(cvprocessor.template__use_button, 0.5) > 0: # Checking the existance of 'USE' button
                             print('[DEBUG] [CHECK] Founded use button')
                             operations.click__use_button() # Clicking on 'USE' button
                             time.sleep(12) # Waiting 12 seconds for resource collecting

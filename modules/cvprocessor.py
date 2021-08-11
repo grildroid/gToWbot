@@ -17,7 +17,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 import os, sys, time, threading, numpy
-import cv2, mss
+
+import mss
+import cv2.cv2 as cv2
 
 class CvProcessor:
     prefix = 'CvProcessor'
@@ -41,7 +43,6 @@ class CvProcessor:
             templates_folder = os.path.join(os.getcwd(), 'data', 'templates')
 
         self.template__use_button = cv2.imread(os.path.join(templates_folder, 'button_use.png'), cv2.IMREAD_GRAYSCALE) # Template image. Button "USE"
-        self.template__farm_map = cv2.imread(os.path.join(templates_folder, 'farm_map.png'), cv2.IMREAD_GRAYSCALE) # Template image. Farm map title
 
         print(f'[INFO] Templates folder path: {templates_folder}')
 
@@ -88,14 +89,15 @@ class CvProcessor:
         cv2.namedWindow(self.cv2wintitle)  # Creating cv2 window with title = cv2wintitle
         cv2.setMouseCallback(self.cv2wintitle, self.get_click_pos)
 
-        while self.running or cv2.getWindowProperty(self.cv2wintitle, 0) >= 0:
+        while self.running:
             self.current_frame += 1 # +1 to the frames counter
 
             self.cvimg = numpy.asarray(self.screenshot.grab((0, 0, 1360, 720))) # Screenshoting ToW window. Converting to numpy arrays format
+            self.cvimg = cv2.cvtColor(self.cvimg, cv2.COLOR_BGR2GRAY) # Converting image to gray (for templates collecting)
 
-            cv2.putText(img=self.cvimg, text=f'frame:{self.current_frame}', org=(80, 300), fontFace=cv2.FONT_HERSHEY_DUPLEX, fontScale=0.8, color=(0, 0, 0), thickness=1)
-            cv2.putText(img=self.cvimg, text=f'time:{time.strftime("%H:%M:%S")}', org=(80, 330), fontFace=cv2.FONT_HERSHEY_DUPLEX, fontScale=0.8, color=(0, 0, 0), thickness=1)
-            cv2.putText(img=self.cvimg, text=f'coord:{self.last_coordinate}', org=(80, 360), fontFace=cv2.FONT_HERSHEY_DUPLEX, fontScale=0.8, color=(0, 0, 0), thickness=1)
+            cv2.putText(img=self.cvimg, text=f'frame:{self.current_frame}', org=(80, 600), fontFace=cv2.FONT_HERSHEY_DUPLEX, fontScale=0.8, color=(0, 0, 0), thickness=1)
+            cv2.putText(img=self.cvimg, text=f'time:{time.strftime("%H:%M:%S")}', org=(80, 630), fontFace=cv2.FONT_HERSHEY_DUPLEX, fontScale=0.8, color=(0, 0, 0), thickness=1)
+            cv2.putText(img=self.cvimg, text=f'coord:{self.last_coordinate}', org=(80, 660), fontFace=cv2.FONT_HERSHEY_DUPLEX, fontScale=0.8, color=(0, 0, 0), thickness=1)
 
             cv2.imshow(self.cv2wintitle, self.cvimg)  # Image rendering to cv2 window
 
@@ -107,13 +109,13 @@ class CvProcessor:
         exit()
 
 
-    def check(self, gray_template):
+    def match(self, gray_template, coeff):
         obj_counter = 0  # Founded objects counter
 
         w, h = gray_template.shape[::-1]  # Transforming (y, x) coordinates system to (x, y)
 
         result = cv2.matchTemplate(self.cvimg, gray_template, cv2.TM_CCOEFF_NORMED)  # Finding object by template
-        loc = numpy.where(result >= 0.7)  # Filtering objects by coefficient
+        loc = numpy.where(result >= coeff)  # Filtering objects by coefficient
 
         # Drawing rectangle on the founded object
         for pt in zip(*loc[::-1]):
