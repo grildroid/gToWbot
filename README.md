@@ -30,19 +30,18 @@ ____
   [Licensed under GNU General Public License v3 (GPL-3)](/LICENSE)  
 
 # Important
-Currently gToWbot works only with ToW with russian translation!
-
-* Press the "Q" button if you need to stop the bot, or just close the gToWbot console
-* When a bot controls a character and collect resources, the bot takes control of the mouse. Do not move the mouse while bot doing its work, otherwise errors may occur
-* After all resources is collected - bot stops his work and closing the console
-* When bot starts - the ToW game window will be automatically resized to 1360x720 and moving to the main monitor at top left corner. Don't move, hide, resize, obscure the window! Bot uses coordinates system, so mouse clicks will be missed
+* Currently gToWbot works only with ToW with russian translation!
+* When the bot starts up, the ToW window automatically resizes to 1360x720 and moves to the main monitor (1) in the upper left corner. Don't move the window, resize it, hide or overlap the ToW window with other applications!
+* When the bot is running, it controls the character and does its job. At this point, the bot takes control of the mouse cursor. Do not move the mouse cursor while the bot is doing its job, it can lead to errors in the bot!
+* The bot uses the coordinate system on which it clicks with the mouse cursor. While the bot is running - any changes in the game window, or movements of the mouse cursor can lead to errors!
+* Press the "Q" button if you need to stop the bot.
+* After completing its work - the bot stops and closes the console window. After that, you can manually return the ToW window to its original size and position.
 
 # Getting Started
-1. Run the TalesOfWind game
-2. Manually move to the farm and check your instuments in inventory
-3. Run the gToWbot.exe
-4. Type the number of AutoResources parameter at console window and press enter
-5. After 5 seconds the bot will be started and your character will go to collect resources on the farm automatically
+1. Start the game Tales of Wind
+2. Run the bot gToWbot.exe
+3. Enter the number of the module you need in the opened console window and press ENTER
+4. After 5 seconds, the bot starts executing the module you selected 
 
 Press ESC instead of Q when you choosing the CoordinatesCollector to close the script
 
