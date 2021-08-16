@@ -43,6 +43,7 @@ class CvProcessor:
             templates_folder = os.path.join(os.getcwd(), 'data', 'templates')
 
         self.template__use_button = cv2.imread(os.path.join(templates_folder, 'button_use.png'), cv2.IMREAD_GRAYSCALE) # Template image. Button "USE"
+        self.template__map_element = cv2.imread(os.path.join(templates_folder, 'map_element.png'), cv2.IMREAD_GRAYSCALE) # Template image. Map element
 
         print(f'[INFO] Templates folder path: {templates_folder}')
 

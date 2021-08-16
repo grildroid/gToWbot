@@ -27,16 +27,16 @@ class TowOperations:
 
     def click__map_point(self, coordinates):
         pyautogui.click(x=coordinates[0], y=coordinates[1], clicks=1)
-        print(f'[{self.prefix}] [INFO] Clicked on map point: {coordinates}')
+        print(f'[{self.prefix}] [DEBUG] Clicked on map point: {coordinates}')
 
     def open__map(self):
         pyautogui.click(x=self.open__map__coordinates[0], y=self.open__map__coordinates[1], clicks=1)
-        print(f'[{self.prefix}] [INFO] Opened map')
+        print(f'[{self.prefix}] [DEBUG] Opened map')
 
     def close__map(self):
         pyautogui.click(x=self.close__map__coordinates[0], y=self.close__map__coordinates[1], clicks=1)
-        print(f'[{self.prefix}] [INFO] Closed map')
+        print(f'[{self.prefix}] [DEBUG] Closed map')
 
     def click__use_button(self):
         pyautogui.click(x=self.use_button__coordinates[0], y=self.use_button__coordinates[1], clicks=1)
-        print(f'[{self.prefix}] [DEBUG] Clicked on use button')
+        #print(f'[{self.prefix}] [DEBUG] Clicked on use button')

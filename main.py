@@ -25,11 +25,14 @@ from modules.cvprocessor import CvProcessor, Payload
 from modules.operations import TowOperations
 
 __author__ = "grildroid"
-__version__ = "1.0"
+__version__ = "1.1"
 
 project_name = "gToWbot"
 
 before_autoresources_start = 7 # [int] Seconds
+
+def get_time():
+    return str(time.strftime('%H:%M:%S'))
 
 class TerminateProcessor:
     close_flag = False
@@ -91,7 +94,7 @@ class AutoResources:
         for resource in self.resources_data:
             terminateprocOBJ.check_terminate() # Checking the close_flag parameter
 
-            print(f"[INFO] Going to {resource['name']} {resource['coords']}")
+            print(f"({get_time()}) [{self.prefix}] [INFO] Going to {resource['name']} {resource['coords']}")
 
             if self.active:
                 check_map__counter = 0
@@ -102,11 +105,11 @@ class AutoResources:
                     time.sleep(2) # Waiting for 2 seconds for map loading
 
                     if check_map__counter > 3:
-                        print(f'[WARNING] Map cant be opened!')
+                        print(f'({get_time()}) [WARNING] Map cant be opened!')
                         terminateprocOBJ.close_flag = True # Setting the terminate option
                         break # Exiting the cycle with terminate command
 
-                    if cvprocessor.match(cvprocessor.template__farm_map, 0.7) > 0: # Checking for the map opens -> If map opens
+                    if cvprocessor.match(cvprocessor.template__map_element, 0.7) > 0: # Checking for the map opens -> If map opens
                         break # Exiting the done cycle
                     else:
                         check_map__counter += 1
@@ -124,7 +127,7 @@ class AutoResources:
 
                     time.sleep(1) # Every 1 second check the button existance
 
-                    if cvprocessor.match(cvprocessor.template__use_button, 0.5) > 0: # Check 'USE' button existance
+                    if cvprocessor.match(cvprocessor.template__use_button, 0.7) > 0: # Check 'USE' button existance
                         break # IF button found -> going to clicking block
                     else: # IF button not found
                         check_resource_use_button += 1
@@ -133,23 +136,26 @@ class AutoResources:
                 if check_resource_use_button < 30:
                     terminateprocOBJ.check_terminate()  # Checking the close_flag parameter
 
-                    print(f"[INFO] Resource {resource['name']} reached")
+                    print(f"({get_time()}) [{self.prefix}] [INFO] Resource {resource['name']} reached")
                     no_use_button = 0
                     time.sleep(1) # Waiting for 'USE' button appears
 
+                    clicks_counter = 0
                     while self.active: # Цикл ресурса
                         terminateprocOBJ.check_terminate() # Checking the close_flag parameter
 
-                        if cvprocessor.match(cvprocessor.template__use_button, 0.5) > 0: # Checking the existance of 'USE' button
-                            print('[DEBUG] [CHECK] Founded use button')
+                        if cvprocessor.match(cvprocessor.template__use_button, 0.6) > 0: # Checking the existance of 'USE' button
+                            #print('[DEBUG] [CHECK] Founded use button')
+                            clicks_counter += 1
                             operations.click__use_button() # Clicking on 'USE' button
+                            print(f'({get_time()}) [{self.prefix}] <{clicks_counter}> Clicked on use button')
                             time.sleep(12) # Waiting 12 seconds for resource collecting
                             no_use_button = 0
                         else:
                             no_use_button += 1
 
                         if no_use_button >= 5: # If 'USE' button can't be found more than 5 times
-                            print(f'[INFO] The resource {resource["name"]} is fully сollected')
+                            print(f'({get_time()}) [{self.prefix}] [INFO] The resource {resource["name"]} is fully сollected')
                             break # Going to the next resource
 
         self.stop()
@@ -166,11 +172,11 @@ class StopButton:
         self.thread_run = True
         self.thread = threading.Thread(target=self.__main, daemon=True)
         self.thread.start()
-        print(f'[{self.prefix}] [i] Started main thread')
+        print(f'[{self.prefix}] [INFO] Started main thread')
 
     def stop_thread(self):
         self.thread_run = False
-        print(f'[{self.prefix}] [i] Stopped main thread')
+        print(f'[{self.prefix}] [INFO] Stopped main thread')
 
     def __main(self):
         while self.thread_run:
@@ -178,7 +184,7 @@ class StopButton:
             if keyboard.is_pressed('q'):
                 if auto_resourcesOBJ.active:
                     terminateprocOBJ.close_flag = True # Setting the terminate option
-                    print('[INFO] Pressed "Q" button')
+                    print(f'({get_time()}) [{self.prefix}] [INFO] Pressed "Q" button')
                     auto_resourcesOBJ.stop() # if pressed q button - stopping the "auto resources" module
 
 class TUI:
@@ -190,17 +196,24 @@ class TUI:
         print('[9] CoordinatesCollector')
         print('')
 
-        choice = str(input('>>:'))
+        while True:
+            choice = str(input('>>:'))
 
-        if choice == '1':
-            auto_resourcesOBJ.start()
+            if choice == '1':
+                auto_resourcesOBJ.start()
+                break
 
-        elif choice == '9':
-            cvprocessor.start_cc()
-            payloadOBJ.start()
+            elif choice == '9':
+                cvprocessor.start_cc()
+                payloadOBJ.start()
+                break
 
-        else:
-            print(f'Entered wrong value: {choice}')
+            else:
+                print(f'Entered wrong value: {choice}')
+
+        print('PRESS ENTER TO CLOSE gToWbot')
+        input()
+        sys.exit(1)
 
 if __name__ == '__main__':
     win32api.SetConsoleTitle(project_name)
@@ -211,7 +224,7 @@ if __name__ == '__main__':
     if result == 0:
         print('[WARNING] Open the ToW game before starting the bot!')
         input('PRESS ENTER TO CLOSE THIS WINDOW')
-        exit()
+        sys.exit(1)
 
     else:
         towwindow.move_window() # Resize, move and set foregroud ToW window
