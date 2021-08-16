@@ -24,7 +24,7 @@
 
 ____
   * Systems: Windows 10  
-  * UI: Console-based
+  * User Interface: Console-based
   
 # License
   gToWbot is a free opensource project!  
@@ -49,6 +49,7 @@ Press ESC instead of Q when you choosing the CoordinatesCollector to close the s
 # Plans
 * Exiting from CoordinatesCollector by pressing Q
 * More modules
+* Web-gui
 * Logging system
 
 # Technologies
