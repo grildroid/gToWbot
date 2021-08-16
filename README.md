@@ -1,8 +1,9 @@
 # gToWbot
   gToWbot (Grildroid's Tales of Wind bot) - by using this simple python3 script you can automatically collect resources (fish, wood, stone) at your farm. gToWbot using computer vision module OpenCV. gToWbot don't collect and don't transfer any of your personal data!  
   
-<a href="#"><img title="gToWbot user interface (version: 1.1)" src="https://user-images.githubusercontent.com/55492813/129568026-ad5e6e0e-2b9a-4421-9f07-73e4fff196b8.png"/></a>
-
+  * Systems: Windows 10 
+  * User Interface: Console-based
+  
 <p align="center">
 <a href="https://github.com/grildroid/gToWbot/releases"><img src="https://img.shields.io/github/v/release/grildroid/gToWbot?style=flat-square" alt="Github release Badge"/></a>
 <a href="/LICENSE"><img src="https://img.shields.io/github/license/grildroid/gToWbot?style=flat-square" alt="Github license Badge"/></a>
@@ -13,7 +14,7 @@
   <a href="https://sourceforge.net/projects/gtowbot/files/latest/download"><img alt="Download gToWbot" src="https://a.fsdn.com/con/app/sf-download-button" width=276 height=48 srcset="https://a.fsdn.com/con/app/sf-download-button?button_size=2x 2x"></a>
 </p>
 
-  
+<a href="#"><img title="gToWbot user interface (version: 1.1)" src="https://user-images.githubusercontent.com/55492813/129568026-ad5e6e0e-2b9a-4421-9f07-73e4fff196b8.png"/></a>
 
 <p align="center">
 ❤️ <b>Come visit our Telegram channel with news about gToWbot updates, some blog stuff and other @grildroid projects!</b> ❤️
@@ -22,10 +23,6 @@
   <a href="https://t.me/grildroidcave"><img src="https://img.shields.io/badge/-Telegram%20channel-blue?style=for-the-badge&logo=Telegram" alt="Telegram Badge"/></a>  
 </p>
 
-____
-  * Systems: Windows 10  
-  * User Interface: Console-based
-  
 # License
   gToWbot is a free opensource project!  
   gToWbot Copyright © 2021 grildroid  
