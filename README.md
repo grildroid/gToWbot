@@ -4,8 +4,8 @@
 <a href="#"><img title="gToWbot user interface (version: 1.1)" src="https://user-images.githubusercontent.com/55492813/129568026-ad5e6e0e-2b9a-4421-9f07-73e4fff196b8.png"/></a>
 
 <p align="center">
-<a href="/releases"><img src="https://img.shields.io/github/v/release/grildroid/gToWbot?style=flat-square" alt="Github release Badge"/></a>
-<a href="/license"><img src="https://img.shields.io/github/license/grildroid/gToWbot?style=flat-square" alt="Github license Badge"/></a>
+<a href="https://github.com/grildroid/gToWbot/releases"><img src="https://img.shields.io/github/v/release/grildroid/gToWbot?style=flat-square" alt="Github release Badge"/></a>
+<a href="/LICENSE"><img src="https://img.shields.io/github/license/grildroid/gToWbot?style=flat-square" alt="Github license Badge"/></a>
 <a href="https://sourceforge.net/projects/gtowbot/files/latest/download"><img alt="Download gToWbot" src="https://img.shields.io/sourceforge/dt/gtowbot.svg" ></a>
 </p>
 
