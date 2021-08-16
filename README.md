@@ -17,10 +17,15 @@
 <a href="#"><img title="gToWbot user interface (version: 1.1)" src="https://user-images.githubusercontent.com/55492813/129568026-ad5e6e0e-2b9a-4421-9f07-73e4fff196b8.png"/></a>
 
 <p align="center">
-❤️ <b>Come visit our Telegram channel with news about gToWbot updates, some blog stuff and other @grildroid projects!</b> ❤️
+❤️ <b>Come visit the Discord channel with news about gToWbot updates, some blog stuff and other grildroid's projects!</b> ❤️
 </p>
+
 <p align="center">
-  <a href="https://t.me/grildroidcave"><img src="https://img.shields.io/badge/-Telegram%20channel-blue?style=for-the-badge&logo=Telegram" alt="Telegram Badge"/></a>  
+  <a href="https://discord.gg/6ZGDgFjDVm" title="Join grildroid's Discord!">
+    <img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"/>
+    <img src="https://img.shields.io/discord/832287844084350979?color=red&label=Discord&style=for-the-badge"/>
+  </a>
+  <!--<a href="https://t.me/grildroidcave" title="Join grildroid's Telegram!"><img src="https://img.shields.io/badge/-Telegram%20channel-blue?style=for-the-badge&logo=Telegram" alt="Telegram Badge"/></a>-->  
 </p>
 
 # License
