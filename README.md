@@ -1,6 +1,8 @@
 # gToWbot
   gToWbot (Grildroid's Tales of Wind bot) - by using this simple python3 script you can automatically collect resources (fish, wood, stone) at your farm. gToWbot using computer vision module OpenCV. gToWbot don't collect and don't transfer any of your personal data!  
   
+<a href="#"><img title="gToWbot user interface (version: 1.1)" src="https://user-images.githubusercontent.com/55492813/129568026-ad5e6e0e-2b9a-4421-9f07-73e4fff196b8.png"/></a>
+
 <p align="center">
 <a href="/releases"><img src="https://img.shields.io/github/v/release/grildroid/gToWbot?style=flat-square" alt="Github release Badge"/></a>
 <a href="/license"><img src="https://img.shields.io/github/license/grildroid/gToWbot?style=flat-square" alt="Github license Badge"/></a>
