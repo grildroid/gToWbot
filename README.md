@@ -30,7 +30,6 @@ ____
   [Licensed under GNU General Public License v3 (GPL-3)](/LICENSE)  
 
 # Important
-* Currently gToWbot works only with ToW with russian translation!
 * When the bot starts up, the ToW window automatically resizes to 1360x720 and moves to the main monitor (1) in the upper left corner. Don't move the window, resize it, hide or overlap the ToW window with other applications!
 * When the bot is running, it controls the character and does its job. At this point, the bot takes control of the mouse cursor. Do not move the mouse cursor while the bot is doing its job, it can lead to errors in the bot!
 * The bot uses the coordinate system on which it clicks with the mouse cursor. While the bot is running - any changes in the game window, or movements of the mouse cursor can lead to errors!
@@ -46,9 +45,8 @@ ____
 Press ESC instead of Q when you choosing the CoordinatesCollector to close the script
 
 # Plans
-* Make gToWbot works with other game translations
 * Exiting from CoordinatesCollector by pressing Q
-* More modules such as AutoResources
+* More modules
 * Logging system
 
 # Technologies
