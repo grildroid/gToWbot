@@ -69,7 +69,7 @@ class AutoResources:
     resources_data = [
         {'name': 'fish', 'coords': (680, 400)},
         {'name': 'wood', 'coords': (690, 240)},
-        {'name': 'stone', 'coords': (750, 160)},
+        {'name': 'stone', 'coords': (784, 621)},
     ]
 
     def start(self):
